@@ -8,14 +8,12 @@ const Header = styled.header`
   margin: 0 auto;
 `;
 
-
 const Title = styled.h1`
  font-size: 100px;
  font-weight: 100;
  text-align: center;
- color: rgba(175, 47, 47, 0.15);
+ color: rgb(124, 37, 126);
 `;
-
 
 const HeaderComponents = () => {
   return (

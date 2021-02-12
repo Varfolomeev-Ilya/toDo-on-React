@@ -41,7 +41,7 @@ class InputComponents extends React.Component {
           value={this.state.value}
           onChange={this.handleChange.bind(this)} 
           placeholder="write down so as not to forget"
-           />
+          />
         </Label>
       </form>
     );
