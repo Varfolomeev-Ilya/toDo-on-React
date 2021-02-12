@@ -1,17 +1,28 @@
 import React from 'react';
+import styled from 'styled-components'
+
+const Header = styled.header`
+  max-width: 700px;
+  max-height: 200px;
+  padding-bottom: 20px;
+  margin: 0 auto;
+`;
+
+
+const Title = styled.h1`
+ font-size: 100px;
+ font-weight: 100;
+ text-align: center;
+ color: rgba(175, 47, 47, 0.15);
+`;
+
 
 const HeaderComponents = () => {
-
-
-
   return (
     <div>
-      <header className="todo__Header">
-       <div className="Header__title">
-        <h1>todos</h1>
-        <input class="new-todo" id="new-todo"  placeholder="What needs to be done?" autofocus=""></input>
-       </div>
-       </header>
+       <Header>
+        <Title>Todo list</Title>
+         </Header>
     </div>
   );
 }
