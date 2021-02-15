@@ -1,5 +1,7 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
+import ContextToDo from '../../components/contexts/ContextToDo';
+
 
 const Input = styled.input`
   padding: 16px 16px 16px 60px;
@@ -23,24 +25,18 @@ const Label = styled.label`
   background-color: #12745615;
 `;  
 
-class InputComponents extends React.Component {
-  constructor() {
-  super();
-  this.state = {value: ''};
-  }
+class TodoInput extends React.Component {
+  static contextType = ContextToDo;
 
-  handleChange(event) {
-    this.setState({value: event.target.value});
-  }
   
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={this.props.onSubmit}>
         <Label>
           <Input type="text" 
-          value={this.state.value}
-          onChange={this.handleChange.bind(this)} 
           placeholder="write down so as not to forget"
+          onChange={this.props.onChange} 
+          onKeyDown={this.props.onKeyDown}
           />
         </Label>
       </form>
@@ -48,4 +44,4 @@ class InputComponents extends React.Component {
   }
 }
 
-export default InputComponents;
+export default TodoInput;
