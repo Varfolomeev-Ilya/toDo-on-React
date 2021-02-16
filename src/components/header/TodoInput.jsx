@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import ContextToDo from '../../components/contexts/ContextToDo';
 
 
 const Input = styled.input`
@@ -26,10 +25,9 @@ const Label = styled.label`
 `;  
 
 class TodoInput extends React.Component {
-  static contextType = ContextToDo;
 
-  
   render() {
+    
     return (
       <form onSubmit={this.props.onSubmit}>
         <Label>

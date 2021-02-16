@@ -1,19 +1,26 @@
 import React from 'react';
+import ContextToDo from '../../components/contexts/ContextToDo';
+
 
 class SectionComponents extends React.Component {
   
+   static contextType = ContextToDo;
+   newTodo = {value: this.state};
+       
 
-  render() {
-  return (
+   
+    render() {  
+    return (
     <div>
-      <section className="todo__Body" id="main" >
-          <label for="toggle-all"/>
-          <ul className="todo-list"> 
-            
-          </ul>
+      <ContextToDo.Provider value={this.state}/>
+      <section className="todo__Body" id="main">
+     <ul>
+     <li>
+     </li>
+       </ul>
       </section>
     </div>
-  );
+   );
   }
 }
 
