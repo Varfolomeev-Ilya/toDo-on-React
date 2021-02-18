@@ -35,6 +35,7 @@ class TaskInput extends React.Component {
        onKeyPress={this.handleEnter}
        onChange={this.inputChange}
        value={input}
+       placeholder="what needs to be done?"
        ></input>
       <button className="add-btn" onClick={this.addTask}>ADD</button> 
       </div>

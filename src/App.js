@@ -46,7 +46,7 @@ class App extends React.Component {
     const {tasks} = this.state;
     const activeTasks = tasks.filter(task => !task.done);
     const doneTasks = tasks.filter(task => task.done);
- 
+
     return (
       <div className="App">
       <div className="todoApp">
@@ -67,7 +67,7 @@ class App extends React.Component {
       <footer className="footer">
       <ul className="filters">
       <li>
-        <a href="3" className="all">Active: {activeTasks.length}</a>
+        <a href="3" className="all">Items left: {activeTasks.length}</a>
       </li>
       <li>
         <a href="2" className="selected">Completed: {doneTasks.length}</a>

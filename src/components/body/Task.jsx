@@ -6,7 +6,7 @@ const Task = ({ task, ...props }) => {
        { !task.done ? (
          <p class="action" onClick={props.doneTask}>✅</p>
        ) : (
-         <p  class="action" onClick={props.deleteTask}>❎</p>
+         <p class="action" onClick={props.deleteTask}>❎</p>
        )}
        </div>
   );
