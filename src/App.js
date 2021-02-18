@@ -1,47 +1,68 @@
 import React from 'react';
 import './styles.css';
-import SectionComponents from './components/body/SectionComponents';
-import HeaderComponents from './components/header/HeaderComponents';
-// import FooterComponents from './components/footer/FooterComponents';
-import TodoInput from './components/header/TodoInput';
-import ContextToDo from './components/contexts/ContextToDo';
+import Task from './components/header/Task';
+import TaskInput from './components/header/TaskInput';
 
 
 class App extends React.Component { 
   constructor() {
     super(); 
     this.state = {
-      value: '' ,
-      toDos: [] } ;
+      tasks: [
+        {id : 0, title: '', done: false},
+        {id : 0, title: 'sdfhsdkf', done: true},
+        {id : 0, title: '435634', done: false}
+      ]   
+    }; 
   }
 
-  handleChange = (event) => {
-    this.setState({value: event.target.value}); 
+  addTask = task => {
+    this.setState(state => {
+      let {tasks} = state;
+      tasks.push({
+        id: tasks.length !== 0 ? task.length : 0, 
+        title: task,
+        done: false
+      });
+      return tasks;
+    });
   }
 
-  handleSubmit = (event) => {
-    event.preventDefault();
-  }
+  doneTask = id => {
+    const index = this.state.tasks.map(task => task.id).indexOf(id);
+    this.setState(state => {
+      let {tasks} = state;
+      tasks[index].done = true;
+      return tasks;
+    });
+  };
 
-  onKeyPressEnter = (event) => {
-    if(event.keyCode === 13) { 
-      const toDo = this.state.value; 
-      localStorage.setItem('todo', JSON.stringify(toDo));  
-      console.log(toDo)
-    }   
-  }   
+  deleteTask = id => {
+    const index = this.state.tasks.map(task => task.id).indexOf(id);
+    this.setState(state => {
+      let {tasks} = state;
+      delete tasks[index];
+      return tasks;
+    });
+  };
 
   render() {
+    const {tasks} = this.state;
+    const activeTasks = tasks.filter(task => !task.done);
+    const doneTasks = tasks.filter(task => task.done);
  
     return (
       <div className="App">
-      <ContextToDo.Provider value={this.state}/>
-        <HeaderComponents/> 
-          <TodoInput onChange={this.handleChange}
-            onSubmit={this.handleSubmit}
-            onKeyDown={this.onKeyPressEnter}
-          />
-          <SectionComponents />
+      <h1 className="top">Active tasks: {activeTasks.length}</h1>
+      {[...activeTasks, ...doneTasks].map(task => (
+        <Task
+        doneTask={() => this.doneTask(task.id)}
+        deleteTask={() => this.deleteTask(task.id)}
+        task={task}
+        key={task.id}>
+        </Task>
+      ))}
+      <TaskInput addTask={this.addTask}></TaskInput>
       </div>
     );
   }
