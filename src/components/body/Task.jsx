@@ -3,7 +3,7 @@ import React from 'react';
 const Task = ({ task, ...props }) => {
   const ActionBtn = () => (
     <div className="action-btn">
-       {!task.done ? (
+       { !task.done ? (
          <p class="action" onClick={props.doneTask}>✅</p>
        ) : (
          <p  class="action" onClick={props.deleteTask}>❎</p>

@@ -1,24 +1,33 @@
-.body {
-  max-width: 550px;
-  height: 100%;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+body {
+  background-color: #4d4d4d;
+  font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  margin-top: 10px;
 }
 
-.task, .tasktask-done {
+.task {
   padding-top: 10px;
   max-width: 550px;
   height: auto;
   margin: 0 auto;
   display: flex;
   flex-direction: row;
-  justify-content: space-around; ;
+  justify-content: space-around; 
   border: 4px solid #ededed;
-  
 }
+
+.tasktask-done {
+  padding-top: 10px;
+  max-width: 550px;
+  height: auto;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around; 
+  border: 4px solid #ededed;
+  text-decoration:line-through ;
+}
+
 
 .action {
   width: 25px;
@@ -30,4 +39,5 @@ p {
   height: auto;
   word-break: break-all;
   width: 350px;
+  font-size: 25px;
 }

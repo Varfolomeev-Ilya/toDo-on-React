@@ -1,5 +1,5 @@
 import React from 'react';
-import './styles.css';
+
 import './components/body/bodyStyles.css'
 import Task from './components/body/Task';
 import TaskInput from './components/Header/TaskInput';
@@ -67,13 +67,13 @@ class App extends React.Component {
       <footer className="footer">
       <ul className="filters">
       <li>
-        <a href="#" className="all">Active: {activeTasks.length}</a>
+        <a href="3" className="all">Active: {activeTasks.length}</a>
       </li>
       <li>
-        <a href="#" className="selected">Completed: {doneTasks.length}</a>
+        <a href="2" className="selected">Completed: {doneTasks.length}</a>
       </li>
       <li>
-        <a href="#" className="all todos">All: {tasks.length}</a>
+        <a href="1" className="all todos">All: {tasks.length}</a>
       </li> 
       </ul>
       </footer>
