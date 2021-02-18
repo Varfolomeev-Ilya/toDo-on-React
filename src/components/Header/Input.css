@@ -1,0 +1,19 @@
+.add-btn {
+  position: relative;
+  background-color: #4CAF50;
+  border: none;
+  font-size: 18px;
+  color: #FFFFFF;
+  width: auto;
+  text-align: center;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  text-decoration: none;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+input {
+  width: 300px;
+  outline: none;
+}

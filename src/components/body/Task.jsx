@@ -4,9 +4,9 @@ const Task = ({ task, ...props }) => {
   const ActionBtn = () => (
     <div className="action-btn">
        {!task.done ? (
-         <p onClick={props.doneTask}>✅</p>
+         <p class="action" onClick={props.doneTask}>✅</p>
        ) : (
-         <p onClick={props.deleteTask}>❎</p>
+         <p  class="action" onClick={props.deleteTask}>❎</p>
        )}
        </div>
   );

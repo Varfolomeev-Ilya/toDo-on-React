@@ -1,4 +1,5 @@
 import React from 'react';
+import './Input.css'
 
 class TaskInput extends React.Component {
   constructor(props) {
@@ -35,7 +36,7 @@ class TaskInput extends React.Component {
        onChange={this.inputChange}
        value={input}
        ></input>
-      <button onClick={this.addTask}>ADD NEW TODOS</button> 
+      <button className="add-btn" onClick={this.addTask}>ADD</button> 
       </div>
     )
   }

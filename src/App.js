@@ -1,30 +1,26 @@
 import React from 'react';
 import './styles.css';
-import Task from './components/header/Task';
-import TaskInput from './components/header/TaskInput';
+import './components/body/bodyStyles.css'
+import Task from './components/body/Task';
+import TaskInput from './components/Header/TaskInput';
 
 
 class App extends React.Component { 
   constructor() {
     super(); 
     this.state = {
-      tasks: [
-        {id : 0, title: '', done: false},
-        {id : 0, title: 'sdfhsdkf', done: true},
-        {id : 0, title: '435634', done: false}
-      ]   
+      tasks: []   
     }; 
   }
 
   addTask = task => {
-    this.setState(state => {
-      let {tasks} = state;
-      tasks.push({
-        id: tasks.length !== 0 ? task.length : 0, 
-        title: task,
-        done: false
-      });
-      return tasks;
+    const updatedTasks = [ ...this.state.tasks ];  
+    updatedTasks.push({
+      id: updatedTasks.length !== 0 ? task.length : 0, 
+      title: task,
+      done: false
+    });
+    this.setState({tasks: updatedTasks}, () => {
     });
   }
 
@@ -53,8 +49,13 @@ class App extends React.Component {
  
     return (
       <div className="App">
-      <h1 className="top">Active tasks: {activeTasks.length}</h1>
-      {[...activeTasks, ...doneTasks].map(task => (
+      <div className="todoApp">
+      <div className="header"> 
+      <h1 className="title">TODOS</h1>
+      <TaskInput addTask={this.addTask}></TaskInput>
+      </div>
+      <div className="main">
+      {[...activeTasks, ...doneTasks,].map(task => (
         <Task
         doneTask={() => this.doneTask(task.id)}
         deleteTask={() => this.deleteTask(task.id)}
@@ -62,7 +63,21 @@ class App extends React.Component {
         key={task.id}>
         </Task>
       ))}
-      <TaskInput addTask={this.addTask}></TaskInput>
+      </div>
+      <footer className="footer">
+      <ul className="filters">
+      <li>
+        <a href="#" className="all">Active: {activeTasks.length}</a>
+      </li>
+      <li>
+        <a href="#" className="selected">Completed: {doneTasks.length}</a>
+      </li>
+      <li>
+        <a href="#" className="all todos">All: {tasks.length}</a>
+      </li> 
+      </ul>
+      </footer>
+      </div>
       </div>
     );
   }
