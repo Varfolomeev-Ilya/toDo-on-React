@@ -3,6 +3,7 @@ import React from 'react';
 import './components/body/bodyStyles.css'
 import Task from './components/body/Task';
 import TaskInput from './components/Header/TaskInput';
+import Footer from './components/Footer/Footer';
 
 
 class App extends React.Component { 
@@ -50,10 +51,7 @@ class App extends React.Component {
     return (
       <div className="App">
       <div className="todoApp">
-      <div className="header"> 
-      <h1 className="title">TODOS</h1>
-      <TaskInput addTask={this.addTask}></TaskInput>
-      </div>
+      <TaskInput addTask={this.addTask}></TaskInput>   
       <div className="main">
       {[...activeTasks, ...doneTasks,].map(task => (
         <Task
@@ -64,19 +62,11 @@ class App extends React.Component {
         </Task>
       ))}
       </div>
-      <footer className="footer">
-      <ul className="filters">
-      <li>
-        <a href="3" className="all">Items left: {activeTasks.length}</a>
-      </li>
-      <li>
-        <a href="2" className="selected">Completed: {doneTasks.length}</a>
-      </li>
-      <li>
-        <a href="1" className="all todos">All: {tasks.length}</a>
-      </li> 
-      </ul>
-      </footer>
+        <Footer
+        activeTasks={activeTasks.length}
+        doneTasks={doneTasks.length}
+        tasks={tasks.length}
+        />  
       </div>
       </div>
     );

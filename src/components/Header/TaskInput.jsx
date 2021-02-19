@@ -30,7 +30,8 @@ class TaskInput extends React.Component {
   render() {
     const {input} = this.state;
     return(
-      <div className="task-input">
+      <div className="header">
+      <h1 className="title">TODOS</h1>
       <input
        onKeyPress={this.handleEnter}
        onChange={this.inputChange}
