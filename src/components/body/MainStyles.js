@@ -17,4 +17,9 @@ const P = styled.p`
   font-size: 25px;
 `;
 
-export {Main, P};
+const ActionP = styled(P)`
+  width: 25px;
+  cursor: pointer;
+`;
+
+export {Main, P, ActionP};

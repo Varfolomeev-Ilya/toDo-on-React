@@ -38,4 +38,4 @@ const H1 = styled.h1`
   font-size: 100px;
   font-weight: 100;
 `;
-export {Button, Header, Input, H1}
+export {Button, Header, Input, H1};

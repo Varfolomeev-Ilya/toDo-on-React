@@ -1,5 +1,5 @@
 import React from 'react';
-import './components/body/bodyStyles.css'
+import './index.css'
 import Task from './components/body/Task';
 import TaskInput from './components/Header/TaskInput';
 import Footer from './components/Footer/Footer';
@@ -21,7 +21,7 @@ class App extends React.Component {
     });
     this.setState({tasks: updatedTasks}, () => {
     });
-  }
+  };
 
   doneTask = id => {
     const index = this.state.tasks.map(task => task.id).indexOf(id);

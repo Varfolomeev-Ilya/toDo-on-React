@@ -21,7 +21,7 @@ render() {
       </Footers>
       </div>
     )
-  }
+  };
 }
 
 export default Footer;

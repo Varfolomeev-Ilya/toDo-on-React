@@ -1,13 +1,13 @@
 import React from 'react';
-import {Main, P} from './MainStyles';
+import {Main, P, ActionP} from './MainStyles';
 
 const Task = ({ task, ...props }) => {
   const ActionBtn = () => (
-    <div className="action-btn">
+    <div>
        { !task.done ? (
-         <p class="action" onClick={props.doneTask}>✅</p>
+         <ActionP onClick={props.doneTask}>✅</ActionP>
        ) : (
-         <p class="action" onClick={props.deleteTask}>❎</p>
+         <ActionP onClick={props.deleteTask}>❎</ActionP>
        )}
        </div>
   );
