@@ -40,7 +40,7 @@ class App extends React.Component {
     const index = this.state.tasks.map(task => task.id).indexOf(id);
     this.setState(state => {
       let {tasks} = state;
-      // tasks[index].done = false;
+      tasks[index].done = false;
       delete tasks[index];
       return tasks;
     });
