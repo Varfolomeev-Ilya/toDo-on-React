@@ -1,5 +1,4 @@
 import React from 'react';
-
 import './components/body/bodyStyles.css'
 import Task from './components/body/Task';
 import TaskInput from './components/Header/TaskInput';
@@ -12,7 +11,7 @@ class App extends React.Component {
     this.state = {
       tasks: []   
     }; 
-  }
+  };
 
   addTask = task => {
     const updatedTasks = [ ...this.state.tasks ];  
@@ -51,17 +50,15 @@ class App extends React.Component {
     return (
       <div className="App">
       <div className="todoApp">
-      <TaskInput addTask={this.addTask}></TaskInput>   
-      <div className="main">
+      <TaskInput addTask={this.addTask}/>  
       {[...activeTasks, ...doneTasks,].map(task => (
         <Task
         doneTask={() => this.doneTask(task.id)}
         deleteTask={() => this.deleteTask(task.id)}
         task={task}
-        key={task.id}>
-        </Task>
+        key={task.id}
+        />
       ))}
-      </div>
         <Footer
         activeTasks={activeTasks.length}
         doneTasks={doneTasks.length}
@@ -70,7 +67,7 @@ class App extends React.Component {
       </div>
       </div>
     );
-  }
+  };
 }
 
 export default App;

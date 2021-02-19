@@ -1,5 +1,6 @@
 import React from 'react';
-import './Input.css'
+import './InputStyles.js'
+import {Button, Header, Input, H1} from './InputStyles';
 
 class TaskInput extends React.Component {
   constructor(props) {
@@ -8,7 +9,7 @@ class TaskInput extends React.Component {
     this.state = {
       input: ''
     };
-  }
+  };
 
   addTask = () => {
     const {input} = this.state;
@@ -21,7 +22,7 @@ class TaskInput extends React.Component {
   handleEnter = event => {
     if (event.key === 'Enter')
       this.addTask();
-  }
+  };
 
   inputChange = event => {
     this.setState({input: event.target.value});
@@ -30,18 +31,18 @@ class TaskInput extends React.Component {
   render() {
     const {input} = this.state;
     return(
-      <div className="header">
-      <h1 className="title">TODOS</h1>
-      <input
+      <Header>
+      <H1>TODOS</H1>
+      <Input
        onKeyPress={this.handleEnter}
        onChange={this.inputChange}
        value={input}
        placeholder="what needs to be done?"
-       ></input>
-      <button className="add-btn" onClick={this.addTask}>ADD</button> 
-      </div>
+       />
+      <Button onClick={this.addTask}>ADD</Button> 
+      </Header>
     )
-  }
+  };
 }
 
 export default TaskInput;

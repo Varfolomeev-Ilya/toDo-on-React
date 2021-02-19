@@ -1,4 +1,5 @@
 import React from 'react';
+import {Main, P} from './MainStyles';
 
 const Task = ({ task, ...props }) => {
   const ActionBtn = () => (
@@ -14,10 +15,12 @@ const Task = ({ task, ...props }) => {
   const className = 'task' + (task.done ? 'task-done' : '');  
 
   return(
+    <Main>
     <div className={className}>
-      <p>{task.title}</p>
-      <ActionBtn></ActionBtn>
+      <P>{task.title}</P>
+      <ActionBtn/>
     </div>
+    </Main>
   );
 };
 

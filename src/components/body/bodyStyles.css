@@ -28,16 +28,8 @@ body {
   text-decoration:line-through ;
 }
 
-
 .action {
   width: 25px;
   cursor: pointer;
 }
 
-p {
-  width: auto;
-  height: auto;
-  word-break: break-all;
-  width: 350px;
-  font-size: 25px;
-}
