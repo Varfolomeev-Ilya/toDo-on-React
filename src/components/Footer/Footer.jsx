@@ -9,15 +9,17 @@ render() {
          <Footers>
       <Ul className="filters">
       <Li>
-        <A href="3" >Items left: {this.props.activeTasks}</A>
+        <A>Items left: {this.props.activeTasks}</A>
       </Li>
       <Li>
-        <A href="2" >Completed: {this.props.doneTasks}</A>
+        <A>Completed: {this.props.doneTasks}</A>
       </Li>
       <Li>
-        <A href="1" >All: {this.props.tasks}</A>
+        <A>All: {this.props.tasks}</A>
       </Li> 
       </Ul>
+      <button onClick={() => this.props.clearTask}></button>
+
       </Footers>
       </div>
     )

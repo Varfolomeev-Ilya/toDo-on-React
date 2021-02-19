@@ -8,7 +8,9 @@ class App extends React.Component {
   constructor() {
     super(); 
     this.state = {
-      tasks: []   
+      tasks: localStorage.getItem('todos') 
+      ? JSON.parse(localStorage.getItem('todos')) 
+      : []
     }; 
   };
 
@@ -19,7 +21,19 @@ class App extends React.Component {
       title: task,
       done: false
     });
+    localStorage.setItem('todos', JSON.stringify(updatedTasks))
     this.setState({tasks: updatedTasks}, () => {
+    });
+  };
+
+  clearTask = task => {
+    const deleteTasks = [];
+    deleteTasks.push({
+      id: deleteTasks.length = 0, 
+      title: task,
+      done: false
+    });
+    this.setState({tasks: deleteTasks}, () => {
     });
   };
 
@@ -49,19 +63,20 @@ class App extends React.Component {
     return (
       <div>
       <TaskInput addTask={this.addTask}/>  
-      {[...activeTasks, ...doneTasks,].map(task => (
+      {[...activeTasks, ...doneTasks].map(task => (
         <Task
         doneTask={() => this.doneTask(task.id)}
         deleteTask={() => this.deleteTask(task.id)}
         task={task}
         key={task.id}
-        />
+        />              
       ))}
         <Footer
         activeTasks={activeTasks.length}
         doneTasks={doneTasks.length}
         tasks={tasks.length}
-        />  
+        onClick={this.clearTask}
+        />
       </div>   
     );
   };
