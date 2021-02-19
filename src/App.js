@@ -4,7 +4,6 @@ import Task from './components/body/Task';
 import TaskInput from './components/Header/TaskInput';
 import Footer from './components/Footer/Footer';
 
-
 class App extends React.Component { 
   constructor() {
     super(); 
@@ -48,8 +47,7 @@ class App extends React.Component {
     const doneTasks = tasks.filter(task => task.done);
 
     return (
-      <div className="App">
-      <div className="todoApp">
+      <div>
       <TaskInput addTask={this.addTask}/>  
       {[...activeTasks, ...doneTasks,].map(task => (
         <Task
@@ -64,8 +62,7 @@ class App extends React.Component {
         doneTasks={doneTasks.length}
         tasks={tasks.length}
         />  
-      </div>
-      </div>
+      </div>   
     );
   };
 }

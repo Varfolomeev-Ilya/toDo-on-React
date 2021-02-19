@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Main = styled.main`
+const Main = styled.main`
   font-weight: 300;
   margin: 0 auto;
   max-width: 550px;
@@ -9,7 +9,7 @@ export const Main = styled.main`
   border: 4px solid #ededed;
 `;
 
-export const P = styled.p`
+const P = styled.p`
   width: auto;
   height: auto;
   word-break: break-all;
@@ -17,3 +17,4 @@ export const P = styled.p`
   font-size: 25px;
 `;
 
+export {Main, P};

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Button = styled.button`
+const Button = styled.button`
   position: relative;
   background-color: #4CAF50;
   border: none;
@@ -16,7 +16,7 @@ export const Button = styled.button`
   margin-left: 5px;
 `;
 
-export const Header = styled.header`
+const Header = styled.header`
   max-width: 550px;
   height: 100%;
   margin: 0 auto;
@@ -28,14 +28,14 @@ export const Header = styled.header`
   border: 4px solid #ededed;
 `;
 
-export const Input = styled.input`
+const Input = styled.input`
   width: 300px;
   font-size: 25px;
 `;
 
-export const H1 = styled.h1`
+const H1 = styled.h1`
   color: rgba(175, 47, 47, 0.15);
   font-size: 100px;
   font-weight: 100;
 `;
-
+export {Button, Header, Input, H1}
