@@ -33,19 +33,23 @@ class App extends React.Component {
       tasks[index].done = true;
       return tasks;
     }); 
-    localStorage.setItem('taskDone',JSON.stringify(index))
+    localStorage.setItem('taskLeft',JSON.stringify(index))
   };
 
   deleteTask = id => {
     const index = this.state.tasks.map(task => task.id).indexOf(id);
     this.setState(state => {
       let {tasks} = state;
+      // tasks[index].done = false;
       delete tasks[index];
       return tasks;
     });
     localStorage.setItem('taskDelete',JSON.stringify(index))
   };
 
+  clearTask = () => {
+    localStorage.removeItem('taskDelete');
+  }
 
   render() {
     const {tasks} = this.state;
@@ -67,7 +71,7 @@ class App extends React.Component {
         activeTasks={activeTasks.length}
         doneTasks={doneTasks.length}
         tasks={tasks.length}
-        onClick={this.clearTask}
+        onClick={() => this.clearTask}
         />
       </div>   
     );
