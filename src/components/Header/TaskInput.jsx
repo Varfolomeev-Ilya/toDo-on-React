@@ -16,7 +16,6 @@ class TaskInput extends React.Component {
     if (input) {
       this.props.addTask(input);
       this.setState({input: ''});
-
     }
   };
 

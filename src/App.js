@@ -7,33 +7,22 @@ import Footer from './components/Footer/Footer';
 class App extends React.Component { 
   constructor() {
     super(); 
-    this.state = {
-      tasks: localStorage.getItem('todos') 
-      ? JSON.parse(localStorage.getItem('todos')) 
-      : []
+    this.state = {  
+     tasks: localStorage.getItem('todos')
+     ? JSON.parse(localStorage.getItem('todos'))
+     : []
     }; 
   };
 
   addTask = task => {
     const updatedTasks = [ ...this.state.tasks ];  
     updatedTasks.push({
-      id: updatedTasks.length !== 0 ? task.length : 0, 
+      id: Date.now(), 
       title: task,
       done: false
     });
     localStorage.setItem('todos', JSON.stringify(updatedTasks))
     this.setState({tasks: updatedTasks}, () => {
-    });
-  };
-
-  clearTask = task => {
-    const deleteTasks = [];
-    deleteTasks.push({
-      id: deleteTasks.length = 0, 
-      title: task,
-      done: false
-    });
-    this.setState({tasks: deleteTasks}, () => {
     });
   };
 
@@ -43,7 +32,8 @@ class App extends React.Component {
       let {tasks} = state;
       tasks[index].done = true;
       return tasks;
-    });
+    }); 
+    localStorage.setItem('taskDone',JSON.stringify(index))
   };
 
   deleteTask = id => {
@@ -53,7 +43,9 @@ class App extends React.Component {
       delete tasks[index];
       return tasks;
     });
+    localStorage.setItem('taskDelete',JSON.stringify(index))
   };
+
 
   render() {
     const {tasks} = this.state;
