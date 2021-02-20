@@ -5,7 +5,7 @@ const Task = ({ task, ...props }) => {
   const ActionBtn = () => (
     <div>
        { !task.done ? (
-         <ActionP onClick={props.doneTask}>✅</ActionP>
+         <ActionP onClick={props.doneTask} >✅</ActionP>
        ) : (
          <ActionP onClick={props.deleteTask}>❎</ActionP>
        )}

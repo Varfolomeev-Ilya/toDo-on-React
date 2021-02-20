@@ -29,32 +29,33 @@ class App extends React.Component {
   doneTask = id => {
     const index = this.state.tasks.map(task => task.id).indexOf(id);
     this.setState(state => {
-      let {tasks} = state;
+      let {tasks} = state
       tasks[index].done = true;
-      return tasks;
-    }); 
-    localStorage.setItem('taskLeft',JSON.stringify(index))
+      return tasks.length;
+    });
+ 
   };
 
   deleteTask = id => {
     const index = this.state.tasks.map(task => task.id).indexOf(id);
     this.setState(state => {
       let {tasks} = state;
-      tasks[index].done = false;
-      delete tasks[index];
-      return tasks;
+      delete tasks[index]
+      return tasks
     });
-    localStorage.setItem('taskDelete',JSON.stringify(index))
   };
 
   clearTask = () => {
-    localStorage.removeItem('taskDelete');
   }
 
   render() {
     const {tasks} = this.state;
     const activeTasks = tasks.filter(task => !task.done);
+    localStorage.setItem('aktiveTasks',JSON.stringify(activeTasks));
     const doneTasks = tasks.filter(task => task.done);
+    localStorage.setItem('taskComplited', JSON.stringify(doneTasks));
+    const allTasks = activeTasks.concat(doneTasks);
+    localStorage.setItem('allTasks', JSON.stringify(allTasks));
 
     return (
       <div>
@@ -65,12 +66,14 @@ class App extends React.Component {
         deleteTask={() => this.deleteTask(task.id)}
         task={task}
         key={task.id}
+        allTAsks={this.allTasks}
         />              
       ))}
         <Footer
         activeTasks={activeTasks.length}
         doneTasks={doneTasks.length}
-        tasks={tasks.length}
+        allT
+        asks={allTasks.length}
         onClick={() => this.clearTask}
         />
       </div>   

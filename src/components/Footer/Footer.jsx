@@ -15,7 +15,7 @@ render() {
         <A>Completed: {this.props.doneTasks}</A>
       </Li>
       <Li>
-        <A>All: {this.props.tasks}</A>
+        <A>All: {this.props.allTasks}</A>
       </Li> 
       </Ul>
       <button onClick={() => this.props.clearTask}></button>

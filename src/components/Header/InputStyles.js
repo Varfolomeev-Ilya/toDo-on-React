@@ -29,7 +29,7 @@ const Header = styled.header`
 `;
 
 const Input = styled.input`
-  width: 300px;
+  max-width: 300px;
   font-size: 25px;
 `;
 
@@ -37,5 +37,6 @@ const H1 = styled.h1`
   color: rgba(175, 47, 47, 0.15);
   font-size: 100px;
   font-weight: 100;
+  width: auto;
 `;
 export {Button, Header, Input, H1};
