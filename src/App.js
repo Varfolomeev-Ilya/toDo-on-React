@@ -32,19 +32,19 @@ class App extends React.Component {
       let {tasks} = state;
       tasks[index].done = true;
       return tasks;
-    })
-    if (id === id) {
-      localStorage.setItem('todos', JSON.stringify(this.state.tasks));
+    });
+    if (event.target === event.currentTarget) {
+      localStorage.setItem('todos', JSON.stringify(this.state.tasks)); 
     } 
   };
 
-  deleteTask = (event, id) => {
+  deleteTask = (id) => {
     const index = this.state.tasks.map(task => task.id).indexOf(id);
     this.setState(state => {
       let {tasks} = state;
       delete tasks[index];
       return tasks;
-    }) 
+    }); 
   };
 
   render() {  
