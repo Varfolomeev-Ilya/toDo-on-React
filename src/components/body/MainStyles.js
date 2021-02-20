@@ -10,11 +10,11 @@ const Main = styled.main`
 `;
 
 const P = styled.p`
-  width: auto;
   height: auto;
   word-break: break-all;
   width: 350px;
   font-size: 25px;
+ 
 `;
 
 const ActionP = styled(P)`

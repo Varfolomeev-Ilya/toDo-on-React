@@ -1,8 +1,8 @@
 import React from 'react';
 import './index.css'
-import Task from './components/body/Task';
 import TaskInput from './components/Header/TaskInput';
 import Footer from './components/Footer/Footer';
+import Main from './components/main/main';
 
 class App extends React.Component { 
   constructor() {
@@ -26,55 +26,37 @@ class App extends React.Component {
     });
   };
 
-  doneTask = id => {
-    const index = this.state.tasks.map(task => task.id).indexOf(id);
-    this.setState(state => {
-      let {tasks} = state
-      tasks[index].done = true;
-      return tasks.length;
-    });
- 
-  };
-
-  deleteTask = id => {
+  checkTask = (event, id) => {
     const index = this.state.tasks.map(task => task.id).indexOf(id);
     this.setState(state => {
       let {tasks} = state;
-      delete tasks[index]
-      return tasks
-    });
+      tasks[index].done = true;
+      return tasks;
+    })
+    if (id === id) {
+      localStorage.setItem('todos', JSON.stringify(this.state.tasks));
+    } 
   };
 
-  clearTask = () => {
-  }
+  deleteTask = (event, id) => {
+    const index = this.state.tasks.map(task => task.id).indexOf(id);
+    this.setState(state => {
+      let {tasks} = state;
+      delete tasks[index];
+      return tasks;
+    }) 
+  };
 
-  render() {
-    const {tasks} = this.state;
-    const activeTasks = tasks.filter(task => !task.done);
-    localStorage.setItem('aktiveTasks',JSON.stringify(activeTasks));
-    const doneTasks = tasks.filter(task => task.done);
-    localStorage.setItem('taskComplited', JSON.stringify(doneTasks));
-    const allTasks = activeTasks.concat(doneTasks);
-    localStorage.setItem('allTasks', JSON.stringify(allTasks));
-
+  render() {  
     return (
       <div>
       <TaskInput addTask={this.addTask}/>  
-      {[...activeTasks, ...doneTasks].map(task => (
-        <Task
-        doneTask={() => this.doneTask(task.id)}
-        deleteTask={() => this.deleteTask(task.id)}
-        task={task}
-        key={task.id}
-        allTAsks={this.allTasks}
-        />              
-      ))}
+      <Main tasks={this.state.tasks}
+        checkTask={this.checkTask}
+        deleteTask={this.deleteTask}
+      />
         <Footer
-        activeTasks={activeTasks.length}
-        doneTasks={doneTasks.length}
-        allT
-        allTasks={allTasks.length}
-        onClick={() => this.clearTask}
+        allTasks={this.state.tasks.length}
         />
       </div>   
     );

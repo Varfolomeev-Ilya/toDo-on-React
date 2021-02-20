@@ -25,5 +25,4 @@ const A = styled.a`
   text-decoration: none;
   color: #000;
 `;
-
 export {Footers, Ul, Li, A}
