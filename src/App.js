@@ -73,7 +73,7 @@ class App extends React.Component {
         activeTasks={activeTasks.length}
         doneTasks={doneTasks.length}
         allT
-        asks={allTasks.length}
+        allTasks={allTasks.length}
         onClick={() => this.clearTask}
         />
       </div>   
