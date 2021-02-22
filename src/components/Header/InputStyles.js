@@ -1,5 +1,29 @@
 import styled from "styled-components";
 
+const StyledHeader = styled.header`
+  max-width: 550px;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  border: 4px solid #ededed;
+`;
+
+const H1 = styled.h1`
+  color: rgba(175, 47, 47, 0.15);
+  font-size: 100px;
+  font-weight: 100;
+  width: auto;
+`;
+
+const Input = styled.input`
+  max-width: 300px;
+  font-size: 25px;
+`;
+
 const Button = styled.button`
   position: relative;
   background-color: #4CAF50;
@@ -16,27 +40,4 @@ const Button = styled.button`
   margin-left: 5px;
 `;
 
-const Header = styled.header`
-  max-width: 550px;
-  height: 100%;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: #fff;
-  border: 4px solid #ededed;
-`;
-
-const Input = styled.input`
-  max-width: 300px;
-  font-size: 25px;
-`;
-
-const H1 = styled.h1`
-  color: rgba(175, 47, 47, 0.15);
-  font-size: 100px;
-  font-weight: 100;
-  width: auto;
-`;
-export {Button, Header, Input, H1};
+export { Button, StyledHeader, Input, H1 };

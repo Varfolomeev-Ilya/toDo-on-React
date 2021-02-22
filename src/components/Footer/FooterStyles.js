@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Footers = styled.footer`
+const StyledFooter = styled.footer`
   max-width: 550px;
   height: 50px;
   margin: 0 auto;
@@ -25,4 +25,5 @@ const A = styled.a`
   text-decoration: none;
   color: #000;
 `;
-export {Footers, Ul, Li, A}
+
+export { StyledFooter, Ul, Li, A }
