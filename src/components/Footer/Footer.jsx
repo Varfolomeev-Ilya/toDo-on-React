@@ -1,26 +1,30 @@
 import React from 'react';
-import { StyledFooter, Ul, Li, A } from './FooterStyles';
+import { StyledFooter, StyledUl, StyledLi, StyledA, StyledButton } from './FooterStyles';
 
-function Footer(props) { 
+function Footer(props) {
+  const allTasks = props.allTasks;
+  const completedTasks = allTasks.filter(item => item.isDone);
+  const itemsLeft = allTasks.filter(item => !item.isDone);
+
   return (
     <StyledFooter>
-      <Ul>
-        <Li>
-          <A>Items left: {props.checkTask}</A>
-        </Li>
+      <StyledUl>
+        <StyledLi>
+          <StyledA id="left" onClick={props.onFilterBtnClick}>Items left: {itemsLeft.length}</StyledA>
+        </StyledLi>
 
-        <Li>
-          <A>Completed: {props.deleteTask}</A>
-        </Li>
+        <StyledLi>
+          <StyledA id="completed" onClick={props.onFilterBtnClick}>Completed: {completedTasks.length}</StyledA>
+        </StyledLi>
 
-        <Li>
-          <A>All: {props.allTasks}</A>
-        </Li> 
+        <StyledLi>
+          <StyledA id="all" onClick={props.onFilterBtnClick}>All: {allTasks.length}</StyledA>
+        </StyledLi>
 
-        <Li>
-          <button>Clear complited</button>
-        </Li>
-      </Ul>
+        <StyledLi>
+          <StyledButton type="button" onClick={props.onClearComplited}>Clear complited</StyledButton>
+        </StyledLi>
+      </StyledUl>
     </StyledFooter>
   );
 };

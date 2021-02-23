@@ -1,15 +1,15 @@
 import React from 'react';
-import { P, ActionP } from './MainStyles';
+import { StyledP, ActionP } from './TaskStyles';
 
-function Task({ task, ...props }) {
-  const className = 'task' + (task.done ? 'task-done' : '');
+function Task(props) {
+  const className = 'task' + (props.isDone ? 'task-done' : '');
 
   return(
-    <div className={className}>
-      <P>{task.title}</P>
+    <div onDoubleClick={() => props.onTaskDblClick(props.id)} className={className}>
+      <StyledP>{props.title}</StyledP>
       <div>
-        <ActionP onClick={(event) => props.onDoneBtnClick(event, props.id)}>✅</ActionP>
-        <ActionP onClick={(event) => props.onDeleteBtnClick(event, props.id)}>❎</ActionP>
+        <ActionP onClick={() => props.onDoneBtnClick(props.id)}>✅</ActionP>
+        <ActionP onClick={() => props.onDeleteBtnClick(props.id)}>❎</ActionP>
       </div>
     </div>
   );
