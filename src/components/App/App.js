@@ -43,7 +43,7 @@ class App extends React.Component {
       isInput: false
     }
 
-    const updatedTasks = [newTask, ...this.state.tasks];
+    const updatedTasks = [...this.state.tasks, newTask];
     this.changeTasksArr(updatedTasks);
   };
 
