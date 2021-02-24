@@ -57,30 +57,14 @@ class App extends React.Component {
   };
 
   checkAll = () => {
-    const everyUnDone = this.state.tasks.every(item => !item.isDone);
     const everyDone = this.state.tasks.every(item => item.isDone);
-    const someUnDone = this.state.tasks.some(item => !item.isDone);
-    const someDone = this.state.tasks.some(item => item.isDone);
+    const tasks = this.state.tasks.map(item => {
+      item.isDone = !everyDone;
 
-    if (everyUnDone || everyDone) {
-      const tasks = this.state.tasks.map(item => {
-        item.isDone = !item.isDone;
-
-        return item;
-      });
+      return item;
+    });
 
       this.changeTasksArr(tasks);
-    }
-
-    if (someDone && someUnDone) {
-      const tasks = this.state.tasks.map(item => {
-        item.isDone = true;
-
-        return item;
-      });
-
-      this.changeTasksArr(tasks);
-    }
   }
 
   handleEnter = event => {
@@ -142,23 +126,9 @@ class App extends React.Component {
   }
 
   handleFilterBtnClick = event => {
-    if (event.target.id === 'all') {
-      this.setState ({
-        activeFilter: 'all'
-      });
-    }
-
-    if (event.target.id === 'completed') {
-      this.setState ({
-        activeFilter: 'completed'
-      });
-    }
-
-    if (event.target.id === 'left') {
-      this.setState ({
-        activeFilter: 'left'
-      });
-    }
+    this.setState ({
+      activeFilter: event.target.id
+    });
   }
 
   render() {
