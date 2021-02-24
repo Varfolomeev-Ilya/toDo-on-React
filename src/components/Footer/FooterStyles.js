@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Footers = styled.footer`
+const StyledFooter = styled.footer`
   max-width: 550px;
   height: 50px;
   margin: 0 auto;
@@ -8,7 +8,7 @@ const Footers = styled.footer`
   border: 4px solid #ededed;
 `;
 
-const Ul = styled.ul`
+const StyledUl = styled.ul`
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -17,12 +17,18 @@ const Ul = styled.ul`
   padding-left: 0;
 `;
 
-const Li = styled.li`
+const StyledLi = styled.li`
   font-size: 24px;
 `;
 
-const A = styled.a`
+const StyledA = styled.a`
   text-decoration: none;
   color: #000;
+  cursor: pointer;
 `;
-export {Footers, Ul, Li, A}
+
+const StyledButton = styled.button`
+  cursor: pointer
+`;
+
+export { StyledFooter, StyledUl, StyledLi, StyledA, StyledButton }

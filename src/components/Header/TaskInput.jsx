@@ -1,6 +1,6 @@
 import React from 'react';
 import './InputStyles.js'
-import {Button, Header, Input, H1} from './InputStyles';
+import {Button, StyledHeader, Input, H1} from './InputStyles';
 
 class TaskInput extends React.Component {
   constructor(props) {
@@ -31,7 +31,7 @@ class TaskInput extends React.Component {
   render() {
     const {input} = this.state;
     return(
-      <Header>
+      <StyledHeader>
       <H1>TODOS</H1>
       <Input
        onKeyPress={this.handleEnter}
@@ -40,7 +40,7 @@ class TaskInput extends React.Component {
        placeholder="what needs to be done?"
        />
       <Button onClick={this.addTask}>ADD</Button> 
-      </Header>
+      </StyledHeader>
     )
   };
 }

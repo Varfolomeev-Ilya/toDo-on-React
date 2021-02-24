@@ -1,31 +1,32 @@
 import React from 'react';
-import {Footers,Ul,Li,A} from './FooterStyles'
-class Footer extends React.Component {
- 
-render() { 
-    return (
-      <div>
-        <Footers>
-          <Ul className="filters">
-          <Li>
-          <A>Items left: {this.props.checkTask}</A>
-          </Li>
-          <Li>
-          <A>Completed: {this.props.deleteTask}</A>
-          </Li>
-          <Li>
-          <A>All: {this.props.allTasks}</A>
-          </Li> 
-          <Li>
-            <button >Clear complited</button>
-          </Li>
-          </Ul>
-        </Footers>
-      </div>
-    )
-  };
-}
+import { StyledFooter, StyledUl, StyledLi, StyledA, StyledButton } from './FooterStyles';
+
+function Footer(props) {
+  const allTasks = props.allTasks;
+  const completedTasks = allTasks.filter(item => item.isDone);
+  const itemsLeft = allTasks.filter(item => !item.isDone);
+
+  return (
+    <StyledFooter>
+      <StyledUl>
+        <StyledLi>
+          <StyledA id="left" onClick={props.onFilterBtnClick}>Items left: {itemsLeft.length}</StyledA>
+        </StyledLi>
+
+        <StyledLi>
+          <StyledA id="completed" onClick={props.onFilterBtnClick}>Completed: {completedTasks.length}</StyledA>
+        </StyledLi>
+
+        <StyledLi>
+          <StyledA id="all" onClick={props.onFilterBtnClick}>All: {allTasks.length}</StyledA>
+        </StyledLi>
+
+        <StyledLi>
+          <StyledButton type="button" onClick={props.onClearComplited}>Clear complited</StyledButton>
+        </StyledLi>
+      </StyledUl>
+    </StyledFooter>
+  );
+};
 
 export default Footer;
-
-

@@ -12,16 +12,17 @@ const StyledHeader = styled.header`
   border: 4px solid #ededed;
 `;
 
-const H1 = styled.h1`
+const StyledH1 = styled.h1`
   color: rgba(175, 47, 47, 0.15);
   font-size: 100px;
   font-weight: 100;
   width: auto;
 `;
 
-const Input = styled.input`
+const StyledInput = styled.input`
   max-width: 300px;
   font-size: 25px;
+  margin-bottom: 3px;
 `;
 
 const Button = styled.button`
@@ -38,6 +39,7 @@ const Button = styled.button`
   overflow: hidden;
   cursor: pointer;
   margin-left: 5px;
+  margin-bottom: 3px;
 `;
 
-export { Button, StyledHeader, Input, H1 };
+export { Button, StyledHeader, StyledInput, StyledH1 };
